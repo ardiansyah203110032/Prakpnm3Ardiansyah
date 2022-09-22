@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        applicationId "com.example.android.unscramble"
+        minSdkVersion 23
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    // LiveData pada kode program ini adalah menyimpan data; LiveData adalah wrapper yang dapat digunakan dengan data apa pun
+    //
+    //live data dapat diamataai dengan obsever yang dimiliki objek dengan mendukung siklus proses
+    //dan merupakan sebuah aktivitas dari fragemen.
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    // ViewModel adalah sebuah salah satu architectural pattern yang dipakai dalam pengembangan perangkat lunak berbasis Graphical User Interface
+    //pada view model tersebut merupakan sebuah inteerface yang merupakan sebuah tampilan yang akan menamambahkan suatu data.
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.fragment:fragment-ktx:1.3.6'
+}
